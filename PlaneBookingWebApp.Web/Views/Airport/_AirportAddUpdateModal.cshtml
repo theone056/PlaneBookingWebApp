@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form method="post"
+      enctype="multipart/form-data"
+      asp-controller="_Airport"
+      asp-action="AddUpdateAirport"
+      data-ajax="true"
+      data-ajax-method="post"
+      data-ajax-mode="replace"
+      data-ajax-update="#airport-table-container"
+      data-ajax-success="Airport.OnSuccess"
+      data-ajax-failure="Airport.OnFailure"
+      id="airport-form">
+    <div class="modal fade" id="airport-modal" tabindex="-1" aria-labelledby="airportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="airportModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="airport-modal-body">
+                    <partial name="_AirportAddUpdateModalContent" model="new AirportUpsertDTO()" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

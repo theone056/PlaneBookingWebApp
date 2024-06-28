@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model BookingUpsertDTO
+<input type="hidden" asp-for="Id"/>
+<div class="container-fluid">
+    <div class="row mb-3">
+        <label class="col-md-3 col-form-label text-nowrap">@Html.DisplayNameFor(x => x.Name):</label>
+        <div class="col-md-9">
+            @Html.TextBoxFor(x => x.Name, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-md-3 col-form-label text-nowrap">@Html.DisplayNameFor(x => x.FlightId)</label>
+        <div class="col-md-9">
+            <select asp-for="FlightId" asp-items="@ViewBag.FlightList" class="form-select">
+                <option selected disabled hidden>Select Flight</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.FlightId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>

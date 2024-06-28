@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model FlightUpsertDTO
+
+<input type="hidden" asp-for="Id"/>
+<div class="container-fluid">
+    <div class="row mb-3">
+        <label class="col-md-3 col-form-label text-nowrap">@Html.DisplayNameFor(x => x.FlightCode):</label>
+        <div class="col-md-9">
+            <input asp-for="FlightCode" class="form-control" />
+            @Html.ValidationMessageFor(x => x.FlightCode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-md-3 col-form-label text-nowrap">@Html.DisplayNameFor(x => x.AirportId)</label>
+        <div class="col-md-9">
+            <select asp-for="AirportId" asp-items="@ViewBag.AirportList" class="form-select">
+                <option selected disabled hidden>Select Airport</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.AirportId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-md-3 col-form-label text-nowrap">@Html.DisplayNameFor(x => x.PlaneId)</label>
+        <div class="col-md-9">
+            <select asp-for="PlaneId" asp-items="@ViewBag.PlaneList" class="form-select">
+                <option selected disabled hidden>Select Plane</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.PlaneId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>

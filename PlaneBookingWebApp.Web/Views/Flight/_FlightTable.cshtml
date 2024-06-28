@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<FlightListDTO>
+
+<table class="table-bordered table-responsive table" id="flight-datatable">
+    <thead>
+        <tr>
+            <td class="fw-bold">@Html.DisplayNameFor(model => model.FirstOrDefault().FlightCode)</td>
+            <td class="fw-bold">@Html.DisplayNameFor(model => model.FirstOrDefault().AirportName)</td>
+            <td class="fw-bold">@Html.DisplayNameFor(model => model.FirstOrDefault().PlaneName)</td>
+            <td class="fw-bold">Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var airport in Model)
+        {
+            <tr>
+                <td>@airport.FlightCode</td>
+                <td>@airport.AirportName</td>
+                <td>@airport.PlaneName</td>
+                <td>
+                    <a class="btn btn-link" onclick="Flight.OnClickEdit('@airport.Id')" data-bs-toggle="modal" data-bs-target="#flight-modal">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <a class="btn btn-link link-danger" onclick="Flight.OnClickDelete('@airport.Id')" data-bs-toggle="modal" data-bs-target="#flight-modal-delete">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

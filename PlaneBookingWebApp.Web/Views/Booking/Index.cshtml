@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model BookingIndexViewModel
+
+<div class="container-fluid mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1>Booking List</h1>
+            <div class="alert alert-success" id="success-alert" style="display:none">
+                <strong>Success! </strong>
+            </div>
+            <div class="alert alert-danger" id="danger-alert" style="display:none">
+                <strong>Error! </strong>
+            </div>
+            <button class="btn btn-primary" onclick="Booking.AddUpdateModal()">Add New</button>
+            <div id="booking-table-container">
+                <partial name="_BookingTable" model="@Model.Bookings" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="flight-modal-container">
+    <partial name="_BookingAddUpdateModal" />
+</div>
+
+
+@section Scripts {
+    <script src="~/js/Booking/BookingIndex.js"></script>
+}
